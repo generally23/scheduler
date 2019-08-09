@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cookie&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="u-mb-lg">Schedule Builder</h1>
+      <form class="u-mb-lg">
+        <input type="date" class="u-mb-sm date" />
+        <input type="time" class="u-mb-sm time" />
+        <input type="text" placeholder="Activity" class="u-mb-sm activity" />
+        <button type="submit">Schedule</button>
+      </form>
+      <h1 class="u-mb-md">My Schedule</h1>
+      <div class="schedule u-mb-lg">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Date</th>
+              <th>Activity</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="error"></p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
