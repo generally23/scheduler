@@ -14,6 +14,20 @@ const app = {
         activity: $(".activity").value
       };
     },
+    init(data) {
+      const html = data
+        .map(
+          d => `
+            <tr>
+              <td>${d.time}</td>
+              <td>${d.date}</td>
+              <td>${d.activity}</td>
+            </tr>
+      `
+        )
+        .join("");
+      $("tbody").innerHTML = html;
+    },
     render({ time, date, activity }, element) {
       const html = `
             <tr>
@@ -26,9 +40,11 @@ const app = {
     }
   },
   store: {
-    scheduleList: [],
+    scheduleList: JSON.parse(localStorage.getItem("scheduleList")) || [],
     add(value) {
-      return this.scheduleList.push(value);
+      const list = this.scheduleList;
+      list.push(value);
+      return localStorage.setItem("scheduleList", JSON.stringify(list));
     },
     remove() {
       return this.scheduleList.pop();
@@ -55,8 +71,10 @@ const app = {
       this.store.add(schedule);
       // render recent schedules to the UI
       this.UI.render(schedule, $("tbody"));
+      // refocus
+      $(".date").focus();
     });
   }
 };
-
 app.handleApp();
+app.UI.init(app.store.scheduleList);
