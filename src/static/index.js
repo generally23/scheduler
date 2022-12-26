@@ -72,7 +72,7 @@ const app = {
       // render recent schedules to the UI
       this.UI.render(schedule, $("tbody"));
       // refocus
-      $(".date").focus();
+      $(".activity").focus();
     });
   }
 };
